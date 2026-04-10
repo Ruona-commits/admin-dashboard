@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | User Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- 1. SIDEBAR (Left Navigation) -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-shield-halved"></i>
+                <span>OPay Admin</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#" class="active"><i class="fas fa-home"></i> Overview</a>
+                <a href="#"><i class="fas fa-users-cog"></i> Agents</a>
+                <a href="#"><i class="fas fa-exchange-alt"></i> Transfers</a>
+                <a href="#"><i class="fas fa-file-invoice-dollar"></i> Settlements</a>
+            </nav>
+        </aside>
+
+        <!-- 2. MAIN WRAPPER (Everything to the right of the sidebar) -->
+        <div class="main-wrapper">
+
+            <!-- 3. TOPBAR (Search & Profile) -->
+            <header class="topbar">
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="user-search" placeholder="Search users by name or email...">
+                </div>
+                <div class="profile-area">
+                    <span class="admin-name">Master Admin</span>
+                    <div class="avatar">MA</div>
+                </div>
+            </header>
+
+            <!-- 4. CONTENT AREA -->
+            <main class="content">
+                <!-- Premium Master Card -->
+                <div class="main-balance-card">
+                    <div class="card-inner">
+                        <div class="card-top">
+                            <div class="card-logo">
+                                <i class="fas fa-shield-halved"></i>
+                                <span>OPay Premium</span>
+                            </div>
+                            <div class="card-chip"></div>
+                        </div>
+                        <div class="card-middle">
+                            <p class="balance-label">Total System Balance</p>
+                            <div class="balance-display">
+                                <h1 id="master-balance">₦0.00</h1>
+                                <i class="fas fa-eye-slash" id="balance-toggle"></i>
+                            </div>
+                        </div>
+                        <div class="card-bottom">
+                            <div class="card-info">
+                                <p class="label">Master Admin</p>
+                                <p class="value">ADM-772-XP</p>
+                            </div>
+                            <div class="card-info">
+                                <p class="label">Status</p>
+                                <p class="value" style="color: var(--accent-primary);">SECURED</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stat Cards Section -->
+                <div class="stats-container"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-bottom: 32px;">
+                    <div class="table-card" style="margin-top: 0;">
+                        <p style="color: var(--text-muted); font-size: 0.8rem;">Total Agents</p>
+                        <h2 id="total-agents-count" style="font-size: 2rem; color: var(--accent-color);">--</h2>
+                    </div>
+                    <div class="table-card" style="margin-top: 0;">
+                        <p style="color: var(--text-muted); font-size: 0.8rem;">Active Agents</p>
+                        <h2 id="active-agents-count" style="font-size: 2rem; color: var(--status-success);">--</h2>
+                    </div>
+                    <div class="table-card" style="margin-top: 0;">
+                        <p style="color: var(--text-muted); font-size: 0.8rem;">Frozen Accounts</p>
+                        <h2 id="frozen-agents-count" style="font-size: 2rem; color: var(--status-error);">--</h2>
+                    </div>
+                </div>
+
+                <div class="page-header">
+                    <div class="header-text">
+                        <h1>User Management</h1>
+                        <p>View, freeze, or delete users from the system.</p>
+                    </div>
+                </div>
+
+                <div class="table-card">
+                    <div class="table-responsive">
+                        <table id="users-table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                                <th>Balance</th>
+                                <th class="actions-header">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users-body">
+                            <!-- We will use JavaScript to fill this in later! -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+        </div>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <script src="dashboard.js"></script>
+</body>
+
+</html>
